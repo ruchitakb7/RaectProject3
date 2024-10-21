@@ -3,7 +3,7 @@ import classes from "./Header.module.css"
 import Cart from "../cart/Cart"
 
 
-const Header=()=>{
+const Header=(props)=>{
     return(
            <div>
              <header className={classes.header}>
@@ -11,7 +11,7 @@ const Header=()=>{
               <div className={classes.box1}>
               <h1 >CandyShop</h1>
               </div>
-               <Cart ></Cart>
+               <Cart openModal={props.openModal}></Cart>
              </div>
              </header> 
            </div> 

@@ -50,22 +50,24 @@ const CandyDescHandler=(event)=>{
  },[candyArray])
 
     return(
-        <Fragment>
+        <center>
         <form onSubmit={submitHandler}>
-            <center>
+           
             <div className="container-candyfrom">
                 <label>Candy Name</label>
                 <input type="text" onChange={CandyNameHandler} value={candyname}></input>
                 <label> Description</label>
                 <input type="text" onChange={CandyDescHandler} value={candydesc}></input>
                 <label>Price</label>
-                <input type="number" min={0} onChange={CandyPriceHandler} value={candyprice}  ></input>
-                <button type="submit" className="button-candy">Add Candy</button>
+                <input type="number" min={1} onChange={CandyPriceHandler} value={candyprice} 
+                style={{width:'50px'}}
+                 ></input>
+                <button type="submit">Add Candy</button>
             </div>
-            </center>
+           
         </form>
         <CandyTable candyArray={candyArray}></CandyTable>
-        </Fragment>
+        </center>
     )
 }
 export  default CandyForm 

@@ -1,38 +1,48 @@
-import React from "react";
+import React ,{useContext} from "react";
 import "./candytable.css"
+import CartContext from "../../../store/cart-context";
 
 const CandyTable = (props) => {
+    
   const { candyArray } = props;
+
+  const ctx=useContext(CartContext)
+
+  const candyQuantityHandler=(quantity,candy,id)=>{
+
+    ctx.addItem({
+      id: id,
+      candyname: candy.candyname,
+      candyprice: candy.candyprice,
+      quantity: quantity,
+    })
+
+  }
 
   
   if (candyArray.length === 0) {
-    return <p>No candies added yet.</p>;
+    return ;
   }
 
   return (
-    <table border="1" style={{ width: "50%", margin: "20px auto" }}>
-      <thead>
-        <tr>
-          <th>Candy Name</th>
-          <th>Description</th>
-          <th>Price</th>
-          <th>Quantity</th>
-        </tr>
-      </thead>
-      <tbody>
-        {candyArray.map((candy, index) => (
-          <tr key={index}>
-            <td>{candy.candyname}</td>
-            <td>{candy.candydesc}</td>
-            <td>${candy.candyprice.toFixed(2)}</td>
-            <td>
-                <button>Buy 1</button> <spam><button>Buy 1</button></spam> <spam><button>Buy 1</button></spam>
-            </td>
-          </tr>
-        ))}
-      </tbody>
+   <table>
+        {
+            candyArray.map((candy,index)=>(
+                <tr>
+                    <td>{index+1}</td>
+                    <td style={{fontWeight:"bold",color:"green",fontSize:'20px'}}>{candy.candyname}</td>
+                    <td>{candy.candydesc}</td>
+                    <td style={{fontWeight:'bold'}}>${candy.candyprice.toFixed(2)}</td>
+                    <td className="button-td">
+                        <button onClick={()=>candyQuantityHandler(1,candy,index+1)}>Buy 1</button>
+                        <button onClick={()=>candyQuantityHandler(2,candy,index+1)}>Buy 2</button>
+                        <button onClick={()=>candyQuantityHandler(3,candy,index+1)}>Buy 3</button>
+                    </td>
+                </tr>
+            ))
+        }
     </table>
-  );
+  )
 };
 
 export default CandyTable;
