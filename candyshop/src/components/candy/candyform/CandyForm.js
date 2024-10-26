@@ -1,11 +1,11 @@
-import Raect, {useState,Fragment,useEffect} from "react"
+import React, {useState,useEffect} from "react"
 import "./candyform.css"
 import CandyTable from "../candytable/CandyTable"
 
 const CandyForm =()=>{
   const [candyname,setCandyName]=useState('')
   const [candydesc,setDesc]=useState('')
-  const [candyprice,setPrice]=useState(0)
+  const [candyprice,setPrice]=useState()
   const [candyArray,setcandyArray]=useState([])
 
 const CandyNameHandler=(event)=>{

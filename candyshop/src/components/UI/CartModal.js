@@ -19,13 +19,15 @@ const CartModal=({onClose})=>{
 
     }
 
+    const OrderHandler=()=>{
+        ctx.clearCart()
+        onClose()
+    
+    }
+
     const removeItem=(id)=>{
         ctx.removeItem(id)
     }
-    
-   
-
-
 
     if(!ctx.items || ctx.items.length>0)
     {
@@ -37,7 +39,7 @@ const CartModal=({onClose})=>{
                         <div className="cart-container">
                             <div key={item.id} className="cartlist">
                                 <p style={{fontWeight:'bold',color:"green"}}>{item.candyname}</p>
-                                <p style={{fontWeight:'bold'}}>${item.candyprice.toFixed(2)}<span style={{marginLeft:"50px"}}>X{item.quantity}</span>
+                                <p style={{fontWeight:'bold'}}>${item.candyprice.toFixed(2)}<span style={{marginLeft:"50px",fontStyle:"italic"}}>x{item.quantity}</span>
                                 </p>
                             </div>
                             <div className="button-control">
@@ -50,7 +52,7 @@ const CartModal=({onClose})=>{
                     <h4 >Total Amount <span style={{ marginLeft:"20px"}} >${ctx.totalOrderprice.toFixed(2)}</span></h4>
                     <div className="button-div" style={{float:"right"}}>
                     <button onClick={onClose}>Cancel</button>
-                    <button>Order</button>
+                    <button onClick={OrderHandler}>Order</button>
                     </div>
                 </div>
                

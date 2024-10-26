@@ -3,19 +3,16 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 5rem;
+    height: 80px;
     background-color: rgb(19, 161, 19);
     color: white;
     align-items:center;
-   
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    z-index: 10;
   }
   
   .headline {
     width:175px;
     height:auto;
-    background-color: pink;
     color: white;
     
   }

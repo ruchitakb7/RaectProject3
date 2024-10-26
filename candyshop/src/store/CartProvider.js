@@ -34,7 +34,7 @@ const cartReducer=(state,action)=>{
             newCartItems = [...state.items];
             newCartItems[isItemExist] = updatedItem;
         }
-        console.log(newCartItems)
+       // console.log(newCartItems)
 
         return {
             items:newCartItems,
@@ -73,6 +73,10 @@ const cartReducer=(state,action)=>{
         }
           
     }
+    if(action.type==='clear')
+    {
+        return initalcartstate;
+    }
     return initalcartstate
 }
 
@@ -81,7 +85,6 @@ const CartProvider=(props)=>{
     const [currentState,actionHandler]=useReducer(cartReducer,initalcartstate)
 
     const addItemHandler=(item)=>{
-      //  console.log(item)
        actionHandler({type:"ADD-ITEM",item:item})
     }
 
@@ -89,16 +92,18 @@ const CartProvider=(props)=>{
         actionHandler({type:"REMOVE-ITEM",id:id})
     }
 
+    const clearCartHandler=()=>{
+        actionHandler({type:'clear'})
 
+    }
     const cartContext={
         items:currentState.items,
         totalQuantity:currentState.totalQuantity,
         totalOrderprice:currentState.totalOrderprice,
         addItem:addItemHandler,
-        removeItem:removeItemHandler
+        removeItem:removeItemHandler,
+        clearCart:clearCartHandler
     }
-
-
     return(
         <CartContext.Provider value={cartContext}>
             {props.children}
