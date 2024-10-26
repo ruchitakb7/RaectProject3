@@ -1,11 +1,13 @@
 table{
     align-items:center;
-    border-collapse: collapse;
-     margin-top: 50px;
+    border-collapse:separate;
+    border-spacing: 0 10px;
      width:fit-content;
     text-align: center;
     box-shadow: 5px 5px 15px rgb(0,0,0,0.3);
     margin: 20px 0;
+    padding: 20px;
+    
 }
 
 td{
@@ -19,6 +21,7 @@ tr{
     background-color:whitesmoke;
     padding: 5px;
     border: 2px solid green;
+    
 }
 
 .button:hover{
@@ -34,4 +37,16 @@ tr{
 button{
     cursor: pointer;
     
+}
+
+
+.container{
+    background-color:rgb(89, 198, 89);
+    width: 600px;
+    box-shadow: 5px 5px 15px rgb(0,0,0,0.3);
+    margin-top: 40px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+     display: flex;
 }

@@ -25,7 +25,8 @@ const CandyTable = (props) => {
   }
 
   return (
-   <table>
+    <div className="container">
+                <table>
         {
             candyArray.map((candy,index)=>(
                 <tr>
@@ -42,6 +43,8 @@ const CandyTable = (props) => {
             ))
         }
     </table>
+    </div>
+   
   )
 };
 
